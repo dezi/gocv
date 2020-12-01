@@ -74,6 +74,11 @@ typedef struct Contours {
     int length;
 } Contours;
 
+typedef struct Contours2f {
+    Contour2f* contours;
+    int length;
+} Contours2f;
+
 // Wrapper for an individual cv::cvRect
 typedef struct Rect {
     int x;
@@ -222,11 +227,14 @@ struct ByteArray toByteArray(const char* buf, int len);
 void ByteArray_Release(struct ByteArray buf);
 
 void Contours_Close(struct Contours cs);
+void Contours2f_Close(struct Contours2f cs);
 void KeyPoints_Close(struct KeyPoints ks);
 void Rects_Close(struct Rects rs);
 void Mats_Close(struct Mats mats);
 void Point_Close(struct Point p);
 void Points_Close(struct Points ps);
+void Point2f_Close(struct Point2f p);
+void Points2f_Close(struct Points2f ps);
 void DMatches_Close(struct DMatches ds);
 void MultiDMatches_Close(struct MultiDMatches mds);
 

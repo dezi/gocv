@@ -722,6 +722,14 @@ void Contours_Close(struct Contours cs) {
     delete[] cs.contours;
 }
 
+void Contours2f_Close(struct Contours2f cs) {
+    for (int i = 0; i < cs.length; i++) {
+        Points2f_Close(cs.contours[i]);
+    }
+
+    delete[] cs.contours;
+}
+
 void CStrings_Close(struct CStrings cstrs) {
     for ( int i = 0; i < cstrs.length; i++ ) {
         delete [] cstrs.strs[i];
@@ -742,6 +750,16 @@ void Points_Close(Points ps) {
 }
 
 void Point_Close(Point p) {}
+
+void Points2f_Close(Points2f ps) {
+    for (size_t i = 0; i < ps.length; i++) {
+        Point2f_Close(ps.points[i]);
+    }
+
+    delete[] ps.points;
+}
+
+void Point2f_Close(Point2f p) {}
 
 void Rects_Close(struct Rects rs) {
     delete[] rs.rects;
